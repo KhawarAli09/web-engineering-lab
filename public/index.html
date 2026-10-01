@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -5,8 +6,143 @@
     <title>Greeting Page</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
+
   <body>
-    <h1 id="greeting"></h1>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header>
+      <h1 id="greeting"></h1>
+
+      <nav >
+        <ul>
+          <li>
+  <a href="#office-hours" aria-current="location">Office Hours</a>
+</li>
+         <li>
+  <a href="#feedback">Send Feedback</a>
+</li>
+ </ul>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <section id="office-hours">
+        <h2>Office Hours</h2>
+
+        <table>
+          <caption>Weekly Office Hours</caption>
+
+          <thead>
+            <tr>
+              <th scope="col">Day</th>
+              <th scope="col">Time</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Monday</td>
+              <td>
+                <time datetime="09:00">9:00 AM</time> -
+                <time datetime="11:00">11:00 AM</time>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <figure>
+          <svg
+            role="img"
+            viewBox="0 0 24 24"
+            width="20"
+            height="48"
+            aria-labelledby="location-title"
+          >
+            <title id="location-title">Office location</title>
+
+            <path
+              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            ></path>
+
+            <circle
+              cx="12"
+              cy="9"
+              r="2"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            ></circle>
+          </svg>
+
+          <figcaption>All office hours are held in Room 214.</figcaption>
+        </figure>
+      </section>
+      <svg
+        aria-hidden="true"
+        width="100%"
+        height="20"
+        viewBox="0 0 100 20"
+        preserveAspectRatio="none"
+      >
+        <line
+          x1="0"
+          y1="10"
+          x2="100"
+          y2="10"
+          stroke="currentColor"
+          stroke-width="2"
+        ></line>
+      </svg>
+      <section id="feedback">
+  <h2>Send Feedback</h2>
+
+  <form>
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" required />
+
+  <label for="email">Email:</label>
+  <input
+    type="email"
+    id="email"
+    name="email"
+    required
+    aria-describedby="email-hint"
+  />
+  <small id="email-hint">Please enter a valid email address.</small>
+
+  <fieldset>
+    <legend>Topic</legend>
+
+    <label>
+      <input type="radio" name="topic" value="general" required />
+      General Inquiry
+    </label>
+
+    <label>
+      <input type="radio" name="topic" value="lab" />
+      Lab Question
+    </label>
+  </fieldset>
+
+  <label for="message">Message</label>
+  <textarea id="message" name="message" required></textarea>
+
+  <button type="submit">Submit</button>
+</form>
+</section>
+    </main>
+
+    <footer>
+      <address>
+        Contact:
+        <a href="mailto:khawarali5491@gmail.com">
+          khawarali5491@gmail.com
+        </a>
+      </address>
+    </footer>
 
     <script src="script.js"></script>
   </body>

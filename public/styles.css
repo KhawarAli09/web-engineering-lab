@@ -1,0 +1,25 @@
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  padding: 8px 12px;
+  background: rgb(65, 171, 16);
+  color: rgb(163, 24, 24);
+  z-index: 1000;
+}
+.skip-link:focus-visible {
+  top: 0;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid #cc00b1;
+  outline-offset: 3px;
+}
+
+svg {
+  pointer-events: none;
+}
