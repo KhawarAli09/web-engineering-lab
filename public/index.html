@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,15 +14,24 @@
     <header>
       <h1 id="greeting"></h1>
 
-      <nav >
+      <nav>
         <ul>
           <li>
-  <a href="#office-hours" aria-current="location">Office Hours</a>
-</li>
-         <li>
-  <a href="#feedback">Send Feedback</a>
-</li>
- </ul>
+            <a
+              href="#office-hours"
+              class="nav-link"
+              aria-current="location"
+            >
+              Office Hours
+            </a>
+          </li>
+
+          <li>
+            <a href="#feedback" class="nav-link">
+              Send Feedback
+            </a>
+          </li>
+        </ul>
       </nav>
     </header>
 
@@ -77,9 +87,12 @@
             ></circle>
           </svg>
 
-          <figcaption>All office hours are held in Room 214.</figcaption>
+          <figcaption class="text-muted">
+            All office hours are held in Room 214.
+          </figcaption>
         </figure>
       </section>
+
       <svg
         aria-hidden="true"
         width="100%"
@@ -96,43 +109,71 @@
           stroke-width="2"
         ></line>
       </svg>
+
       <section id="feedback">
-  <h2>Send Feedback</h2>
+        <h2>Send Feedback</h2>
 
-  <form>
-  <label for="name">Name:</label>
-  <input type="text" id="name" name="name" required />
+        <form>
+          <p>
+            <label for="name">Name:</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+            />
+          </p>
 
-  <label for="email">Email:</label>
-  <input
-    type="email"
-    id="email"
-    name="email"
-    required
-    aria-describedby="email-hint"
-  />
-  <small id="email-hint">Please enter a valid email address.</small>
+          <p>
+            <label for="email">Email:</label>
 
-  <fieldset>
-    <legend>Topic</legend>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              aria-describedby="email-hint"
+            />
 
-    <label>
-      <input type="radio" name="topic" value="general" required />
-      General Inquiry
-    </label>
+            <small id="email-hint" class="text-muted">
+              Please enter a valid email address.
+            </small>
+          </p>
 
-    <label>
-      <input type="radio" name="topic" value="lab" />
-      Lab Question
-    </label>
-  </fieldset>
+          <fieldset>
+            <legend>Topic</legend>
 
-  <label for="message">Message</label>
-  <textarea id="message" name="message" required></textarea>
+            <label>
+              <input
+                type="radio"
+                name="topic"
+                value="general"
+                required
+              />
+              General Inquiry
+            </label>
 
-  <button type="submit">Submit</button>
-</form>
-</section>
+            <label>
+              <input
+                type="radio"
+                name="topic"
+                value="lab"
+              />
+              Lab Question
+            </label>
+          </fieldset>
+
+          <label for="message">Message</label>
+
+          <textarea
+            id="message"
+            name="message"
+            required
+          ></textarea>
+
+          <button type="submit">Submit</button>
+        </form>
+      </section>
     </main>
 
     <footer>
@@ -147,3 +188,4 @@
     <script src="script.js"></script>
   </body>
 </html>
+
