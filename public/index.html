@@ -1,191 +1,142 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Greeting Page</title>
-    <link rel="stylesheet" href="styles.css" />
+    <meta
+      name="description"
+      content="Khawar Ali's portfolio showcasing AI & Machine Learning, projects, and experience."
+    />
+    <title>Web Engineering Lab</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
-
   <body>
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-
-    <header>
+    <a href="#main" class="skip-link">Skip to main content</a>
+    <header id="header">
       <h1 id="greeting"></h1>
-
-      <nav>
+      <nav class="nav-link">
         <ul>
           <li>
-            <a
-              href="#office-hours"
-              class="nav-link"
-              aria-current="location"
+            <a href="#schedule" aria-current="location" class="span-all"
+              >Office Hours</a
             >
-              Office Hours
-            </a>
           </li>
-
-          <li>
-            <a href="#feedback" class="nav-link">
-              Send Feedback
-            </a>
-          </li>
+          <li><a href="#feedback" class="nav-link">send feedback</a></li>
         </ul>
       </nav>
     </header>
 
-    <main id="main-content">
-      <section id="office-hours">
-        <h2>Office Hours</h2>
-
+    <main id="main">
+      <section id="schedule">
+        <h2 id="schedule-heading">Office Hours</h2>
         <table>
-          <caption>Weekly Office Hours</caption>
-
+          <caption>
+            Weekly office hours
+          </caption>
           <thead>
             <tr>
+              <th scope="col">Book</th>
               <th scope="col">Day</th>
               <th scope="col">Time</th>
             </tr>
           </thead>
-
           <tbody>
+
             <tr>
+              <td>
+                <button type="button" data-day="Monday" aria-label="Select Monday">
+                  Select
+                </button>
+              </td>
+              <td>
+                <button type="button" data-day="Wednesday" aria-label="Select Wednesday">
+                Select
+                </button>
+              </td>
               <td>Monday</td>
               <td>
-                <time datetime="09:00">9:00 AM</time> -
-                <time datetime="11:00">11:00 AM</time>
+                <time datetime="10:00">10:00</time>–<time datetime="11:00"
+                  >11:00</time
+                >
               </td>
             </tr>
           </tbody>
         </table>
+        <p id="status" class="span-all text-muted" role="status"></p>
 
         <figure>
           <svg
             role="img"
+            aria-labelledby="pin-title"
+            width="24"
+            height="24"
             viewBox="0 0 24 24"
-            width="20"
-            height="48"
-            aria-labelledby="location-title"
           >
-            <title id="location-title">Office location</title>
-
+            <title id="pin-title">Location pin</title>
             <path
-              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            ></path>
-
-            <circle
-              cx="12"
-              cy="9"
-              r="2"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            ></circle>
+              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+              fill="currentColor"
+            />
           </svg>
-
           <figcaption class="text-muted">
             All office hours are held in Room 214.
           </figcaption>
         </figure>
       </section>
 
-      <svg
-        aria-hidden="true"
-        width="100%"
-        height="20"
-        viewBox="0 0 100 20"
-        preserveAspectRatio="none"
-      >
-        <line
-          x1="0"
-          y1="10"
-          x2="100"
-          y2="10"
-          stroke="currentColor"
-          stroke-width="2"
-        ></line>
+      <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="3" fill="#0b3d91" />
       </svg>
 
       <section id="feedback">
         <h2>Send Feedback</h2>
-
         <form>
           <p>
             <label for="name">Name:</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              required
-            />
+            <input type="text" name="name" id="name" required />
           </p>
-
           <p>
             <label for="email">Email:</label>
-
             <input
               type="email"
-              id="email"
               name="email"
+              id="email"
               required
               aria-describedby="email-hint"
             />
-
-            <small id="email-hint" class="text-muted">
-              Please enter a valid email address.
-            </small>
+            <p class="text-muted" id="email-hint">
+            We will only use this to reply to you.
           </p>
+          </p>
+          
 
-          <fieldset>
+          <fieldset class="span-all">
             <legend>Topic</legend>
-
             <label>
-              <input
-                type="radio"
-                name="topic"
-                value="general"
-                required
-              />
+              <input type="radio" name="topic" value="general" checked />
               General Inquiry
             </label>
-
             <label>
-              <input
-                type="radio"
-                name="topic"
-                value="lab"
-              />
+              <input type="radio" name="topic" value="lab" />
               Lab Question
             </label>
           </fieldset>
 
-          <label for="message">Message</label>
-
-          <textarea
-            id="message"
-            name="message"
-            required
-          ></textarea>
-
-          <button type="submit">Submit</button>
+          <p>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+          </p>
+          <p>
+            <button type="submit">Send</button>
+          </p>
         </form>
       </section>
     </main>
 
     <footer>
-      <address>
-        Contact:
-        <a href="mailto:khawarali5491@gmail.com">
-          khawarali5491@gmail.com
-        </a>
-      </address>
+      <address>Contact me: khawarali5491@gmail.com</address>
     </footer>
-
-    <script src="script.js"></script>
+    <script type="module" src="main.js"></script>
+    <script type="module" src="script.js"></script>
   </body>
 </html>
-
