@@ -5,64 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Khawar Ali's portfolio showcasing AI & Machine Learning, projects, and experience."
+      content="Khawar Ali's Web Engineering Lab portfolio showcasing office hours and feedback."
     />
     <title>Web Engineering Lab</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <a href="#main" class="skip-link">Skip to main content</a>
+
     <header id="header">
-      <h1 id="greeting"></h1>
-      <nav class="nav-link">
-        <ul>
-          <li>
-            <a href="#schedule" aria-current="location" class="span-all"
-              >Office Hours</a
-            >
-          </li>
-          <li><a href="#feedback" class="nav-link">send feedback</a></li>
+      <h1 id="greeting">Web Engineering Lab</h1>
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="#schedule" aria-current="location">Office Hours</a></li>
+          <li><a href="#feedback">Send Feedback</a></li>
         </ul>
       </nav>
     </header>
 
     <main id="main">
+      <!-- Office Hours Section -->
       <section id="schedule">
         <h2 id="schedule-heading">Office Hours</h2>
-        <table>
-          <caption>
-            Weekly office hours
-          </caption>
-          <thead>
-            <tr>
-              <th scope="col">Book</th>
-              <th scope="col">Day</th>
-              <th scope="col">Time</th>
-            </tr>
-          </thead>
-          <tbody>
+        <div class="table-container">
+          <table>
+            <caption>Weekly office hours</caption>
+            <thead>
+              <tr>
+                <th scope="col">Book</th>
+                <th scope="col">Day</th>
+                <th scope="col">Time</th>
+                <th scope="col">Room</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <button type="button" data-day="Monday" aria-label="Book Monday office hours">
+                    Select
+                  </button>
+                </td>
+                <td>Monday</td>
+                <td>
+                  <time datetime="10:00">10:00</time>–<time datetime="11:00">11:00</time>
+                </td>
+                <td>Room 214</td>
+              </tr>
+              <tr>
+                <td>
+                  <button type="button" data-day="Wednesday" aria-label="Book Wednesday office hours">
+                    Select
+                  </button>
+                </td>
+                <td>Wednesday</td>
+                <td>
+                  <time datetime="14:00">14:00</time>–<time datetime="15:00">15:00</time>
+                </td>
+                <td>Room 214</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-            <tr>
-              <td>
-                <button type="button" data-day="Monday" aria-label="Select Monday">
-                  Select
-                </button>
-              </td>
-              <td>
-                <button type="button" data-day="Wednesday" aria-label="Select Wednesday">
-                Select
-                </button>
-              </td>
-              <td>Monday</td>
-              <td>
-                <time datetime="10:00">10:00</time>–<time datetime="11:00"
-                  >11:00</time
-                >
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <p id="status" class="span-all text-muted" role="status"></p>
+        <!-- Status paragraph targeted by main.js getRequired("#status") -->
+        <p id="status" class="span-all text-muted" role="status" aria-live="polite"></p>
 
         <figure>
           <svg
@@ -74,7 +80,7 @@
           >
             <title id="pin-title">Location pin</title>
             <path
-              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5-2.5-1.12 2.5-2.5 2.5z"
               fill="currentColor"
             />
           </svg>
@@ -84,18 +90,16 @@
         </figure>
       </section>
 
-      <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
-        <circle cx="12" cy="12" r="3" fill="#0b3d91" />
-      </svg>
-
+      <!-- Feedback Form Section -->
       <section id="feedback">
         <h2>Send Feedback</h2>
-        <form>
-          <p>
+        <form id="feedback-form" novalidate>
+          <div class="form-group">
             <label for="name">Name:</label>
             <input type="text" name="name" id="name" required />
-          </p>
-          <p>
+          </div>
+
+          <div class="form-group">
             <label for="email">Email:</label>
             <input
               type="email"
@@ -104,11 +108,10 @@
               required
               aria-describedby="email-hint"
             />
-            <p class="text-muted" id="email-hint">
-            We will only use this to reply to you.
-          </p>
-          </p>
-          
+            <span class="text-muted" id="email-hint">
+              We will only use this to reply to you.
+            </span>
+          </div>
 
           <fieldset class="span-all">
             <legend>Topic</legend>
@@ -122,21 +125,23 @@
             </label>
           </fieldset>
 
-          <p>
-            <label for="message">Message</label>
-            <textarea id="message" name="message" required></textarea>
-          </p>
-          <p>
+          <div class="form-group span-all">
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+          </div>
+
+          <div class="form-group span-all">
             <button type="submit">Send</button>
-          </p>
+          </div>
         </form>
       </section>
     </main>
 
     <footer>
-      <address>Contact me: khawarali5491@gmail.com</address>
+      <address>Contact me: <a href="mailto:khawarali5491@gmail.com">khawarali5491@gmail.com</a></address>
     </footer>
+
     <script type="module" src="main.js"></script>
-    <script type="module" src="script.js"></script>
+    <script type="module" src="feedback.js"></script>
   </body>
 </html>
